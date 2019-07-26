@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Address.cs" />
+    <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\ContactDetail.cs" />
+    <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\LineItem.cs" />
+    <Compile Include="Entity\Order.cs" />
+    <Compile Include="Entity\Product.cs" />
+    <Compile Include="Enums\AddressType.cs" />
+    <Compile Include="Enums\OrderSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
