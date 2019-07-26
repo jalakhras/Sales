@@ -34,7 +34,16 @@ namespace SharedKernel.Data
         }
         public TEntity FindByKey(int id)
         {
-            return _dbSet.Find(id);
+            //get entity name 
+            var item = Expression.Parameter(typeof(TEntity), "entity");
+            //get Property name like customerId
+            var prop = Expression.Property(item , typeof(TEntity).Name +"Id");
+            var value = Expression.Constant(id);
+            // add condtion to lambda like x=>x.customerId==id
+            var equal = Expression.Equal(prop,value);
+            var lambda = Expression.Lambda<Func<TEntity,bool>>(equal,item);
+
+            return _dbSet.AsNoTracking().SingleOrDefault(lambda);
         }
 
         public void Insert(TEntity entity)

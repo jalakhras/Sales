@@ -26,19 +26,21 @@ namespace SalesApp.Tests.Data
             SetupLogging();
         }
 
-        //[TestMethod]
-        //public void CanFindByCustomerByKeyWithDynamicLambda() {
-        //  var results = _customerRepository.FindByKey(1);
-        //  WriteLog();
-        //  Assert.IsTrue(_log.Contains("FROM [dbo].[Customers"));
-        //}
+        [TestMethod]
+        public void CanFindByCustomerByKeyWithDynamicLambda()
+        {
+            var results = _customerRepository.FindByKey(1);
+            WriteLog();
+            Assert.IsTrue(_log.Contains("FROM [dbo].[Customers"));
+        }
 
-        //[TestMethod]
-        //public void CanFindByProductByKeyWithDynamicLambda() {
-        //  var results = new GenericRepository<Product>(_context).FindByKey(1);
-        //  WriteLog();
-        //  Assert.IsTrue(_log.Contains("FROM [dbo].[Products"));
-        //}
+        [TestMethod]
+        public void CanFindByProductByKeyWithDynamicLambda()
+        {
+            var results = new GenericRepository<Product>(_context).FindByKey(1);
+            WriteLog();
+            Assert.IsTrue(_log.Contains("FROM [dbo].[Products"));
+        }
 
 
 
