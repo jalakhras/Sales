@@ -51,6 +51,11 @@
     <Compile Include="CustomerData.cs" />
     <Compile Include="CustomerWithOrdersData.cs" />
     <Compile Include="CustomerWithOrdersData_DI.cs" />
+    <Compile Include="Migrations\201907262028117_initial.cs" />
+    <Compile Include="Migrations\201907262028117_initial.Designer.cs">
+      <DependentUpon>201907262028117_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderSystemContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +72,11 @@
       <Project>{FB67AFC3-7BC1-4B90-B51D-4DEDDC6EF4F8}</Project>
       <Name>SharedKernel.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201907262028117_initial.resx">
+      <DependentUpon>201907262028117_initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
