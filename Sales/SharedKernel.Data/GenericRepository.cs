@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace SharedKernel.Data
 {
@@ -20,6 +22,12 @@ namespace SharedKernel.Data
             return _dbSet.AsNoTracking().ToList();
         }
 
+        public IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        {
+            IEnumerable<TEntity> results = _dbSet.AsNoTracking()
+              .Where(predicate).ToList();
+            return results;
+        }
         public IQueryable<TEntity> AllQuery()
         {
             return _dbSet.AsNoTracking();

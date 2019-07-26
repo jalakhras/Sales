@@ -2,6 +2,7 @@
 using SalesApp.Data;
 using SalesApp.Domain.Entity;
 using SharedKernel.Data;
+using System;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
@@ -48,31 +49,34 @@ namespace SalesApp.Tests.Data
             Assert.AreEqual(0, _context.ChangeTracker.Entries().Count());
         }
 
-        //[TestMethod]
-        //public void CanQueryWithSinglePredicate() {
-        //  var results = _customerRepository.FindBy(c => c.LastName.StartsWith("L"));
-        //  WriteLog();
-        //  Assert.IsTrue(_log.Contains("'L%'"));
-        //}
+        [TestMethod]
+        public void CanQueryWithSinglePredicate()
+        {
+            var results = _customerRepository.FindBy(c => c.LastName.StartsWith("L"));
+            WriteLog();
+            Assert.IsTrue(_log.Contains("'L%'"));
+        }
 
-        //[TestMethod]
-        //public void CanQueryWithDualPredicate() {
-        //  var date = new DateTime(2001, 1, 1);
-        //  var results = _customerRepository
-        //    .FindBy(c => c.LastName.StartsWith("L") && c.DateOfBirth >= date);
-        //  WriteLog();
-        //  Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("1/1/2001"));
-        //}
+        [TestMethod]
+        public void CanQueryWithDualPredicate()
+        {
+            var date = new DateTime(2001, 1, 1);
+            var results = _customerRepository
+              .FindBy(c => c.LastName.StartsWith("L") && c.DateOfBirth >= date);
+            WriteLog();
+            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("1/1/2001"));
+        }
 
-        //[TestMethod]
-        //public void CanQueryWithComplexRelatedPredicate() {
-        //  var date = new DateTime(2001, 1, 1);
-        //  var results = _customerRepository
-        //     .FindBy(c => c.LastName.StartsWith("L") && c.DateOfBirth >= date
-        //                                             && c.Orders.Any());
-        //  WriteLog();
-        //  Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("1/1/2001") && _log.Contains("Orders"));
-        //}
+        [TestMethod]
+        public void CanQueryWithComplexRelatedPredicate()
+        {
+            var date = new DateTime(2001, 1, 1);
+            var results = _customerRepository
+               .FindBy(c => c.LastName.StartsWith("L") && c.DateOfBirth >= date
+                                                       && c.Orders.Any());
+            WriteLog();
+            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("1/1/2001") && _log.Contains("Orders"));
+        }
 
 
 
