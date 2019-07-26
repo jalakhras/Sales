@@ -42,8 +42,6 @@ namespace SalesApp.Tests.Data
             Assert.IsTrue(_log.Contains("FROM [dbo].[Products"));
         }
 
-
-
         [TestMethod]
         public void NoTrackingQueriesDoNotCacheObjects()
         {
@@ -80,8 +78,6 @@ namespace SalesApp.Tests.Data
             Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("1/1/2001") && _log.Contains("Orders"));
         }
 
-
-
         [TestMethod]
         public void ComposedOnAllListExecutedInMemory()
         {
@@ -105,5 +101,51 @@ namespace SalesApp.Tests.Data
             _logBuilder.Append(message);
             _log = _logBuilder.ToString();
         }
+
+        [TestMethod]
+        public void GetAllIncludingComprehendsSingleNavigation()
+        {
+            var results = _customerRepository.AllInclude(c => c.Orders);
+            Assert.IsTrue(results.Any(c => c.Orders.Any()));
+        }
+
+        [TestMethod]
+        public void GetAllIncludingComprehendsTwoChildNavigation()
+        {
+            var results = _customerRepository.AllInclude(c => c.Orders, c => c.ContactDetail);
+            WriteLog();
+            Assert.IsTrue(_log.Contains("ContactDetails"));
+            Assert.IsTrue(results.Any(c => c.Orders.Any()));
+        }
+
+        [TestMethod]
+        public void GetAllIncludingComprehendsTwoLevelNavigation()
+        {
+            var results = _customerRepository.AllInclude(c => c.Orders, c => c.Orders.Select(o => o.LineItems));
+            WriteLog();
+            Assert.IsTrue(_log.Contains("LineItems"));
+            Assert.IsTrue(results.Any(c => c.Orders.Any()));
+        }
+
+        [TestMethod]
+        public void CanIncludeNavigationProperties()
+        {
+            var results = _customerRepository.AllInclude(c => c.Orders);
+            WriteLog();
+            Assert.IsTrue(_log.Contains("Orders"));
+            Assert.IsTrue(results.Any(c => c.Orders.Any()));
+        }
+
+        //[TestMethod]
+        //public void CanCombineFillterAndInclude()
+        //{
+        //    var date = new DateTime(2019, 07, 17);
+        //    var results = _customerRepository.FindByInclude(c => c.LastName.StartsWith("J")&& c.DateOfBirth < date,c=>c.Orders);
+        //    WriteLog();
+        //    Assert.IsTrue(_log.Contains("Orders"));
+        //    Assert.IsTrue(results.Any(c => c.Orders.Any()));
+        //    Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("7/17/2019"));
+
+        //}
     }
 }
