@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Data", "SalesApp.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Domain", "SalesApp.Domain\SalesApp.Domain.csproj", "{91ACE85A-94DF-46BC-BBF0-4D5EC02AB552}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel.Data", "SharedKernel.Data\SharedKernel.Data.csproj", "{FB67AFC3-7BC1-4B90-B51D-4DEDDC6EF4F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{91ACE85A-94DF-46BC-BBF0-4D5EC02AB552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91ACE85A-94DF-46BC-BBF0-4D5EC02AB552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91ACE85A-94DF-46BC-BBF0-4D5EC02AB552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB67AFC3-7BC1-4B90-B51D-4DEDDC6EF4F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB67AFC3-7BC1-4B90-B51D-4DEDDC6EF4F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB67AFC3-7BC1-4B90-B51D-4DEDDC6EF4F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB67AFC3-7BC1-4B90-B51D-4DEDDC6EF4F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
