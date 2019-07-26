@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel.Data", "Shared
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sales.Web", "Sales.Web\Sales.Web.csproj", "{077C7FD1-880D-4310-86DE-391B3888D347}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesApp.Tests.Data", "SalesApp.Tests.Data\SalesApp.Tests.Data.csproj", "{C6C55FF5-3F86-4EE7-A285-22C2102813BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{077C7FD1-880D-4310-86DE-391B3888D347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{077C7FD1-880D-4310-86DE-391B3888D347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{077C7FD1-880D-4310-86DE-391B3888D347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C55FF5-3F86-4EE7-A285-22C2102813BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C55FF5-3F86-4EE7-A285-22C2102813BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C55FF5-3F86-4EE7-A285-22C2102813BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C55FF5-3F86-4EE7-A285-22C2102813BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
